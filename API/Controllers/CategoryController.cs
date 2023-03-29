@@ -14,17 +14,28 @@ namespace API.Controllers
     {
         // GET: api/Category
         [HttpGet]
-        public IEnumerable<Tutorial> Get()
+        public List<Tutorial> Get()
         {
             Category category = new Category();
             return category.getTutorials();
         }
+        
 
         // GET: api/Category/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public Category Get(int Id)
         {
-            return "value";
+            Category category = new Category() {id = 1, name = "DIY", Description = "Realizar cosas por tu propia cuenta", Quantity= 23 };
+            if (category.id == Id)
+            {
+                //StatusCode(500);
+                return category;
+            }
+            else
+            {
+                //StatusCode(201);
+                return null;
+            }
         }
 
         // POST: api/Category
