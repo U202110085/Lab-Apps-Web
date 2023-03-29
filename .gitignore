@@ -1,0 +1,29 @@
+# JetBrains Rider files
+.idea/
+
+# Compiled files
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+packages/
+
+# User-specific files
+*.user
+*.suo
+*.resharper
+
+# Logs and other generated files
+*.log
+*.bak
+*.cache
+*.dll.refresh
+*.dbmdl
+
+# Windows-based files
+Thumbs.db
+Desktop.ini
+
+# Resharper cache
+_ReSharper*/
