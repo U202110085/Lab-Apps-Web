@@ -9517,23 +9517,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ruizc\\.nuget\\packages\\": {},
+    "C:\\Users\\leopa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ruizc\\RiderProjects\\Lab_Semana2\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\leopa\\RiderProjects\\Lab-Apps-Web\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\ruizc\\RiderProjects\\Lab_Semana2\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\ruizc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ruizc\\RiderProjects\\Lab_Semana2\\API\\obj\\",
+      "projectPath": "C:\\Users\\leopa\\RiderProjects\\Lab-Apps-Web\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\leopa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leopa\\RiderProjects\\Lab-Apps-Web\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ruizc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\leopa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
