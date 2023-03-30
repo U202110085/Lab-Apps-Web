@@ -12,7 +12,5 @@ public class Category
     public List<Tutorial> getTutorials()
     {
         return Tutorials;
-    }  
-    
-
+    }
 }

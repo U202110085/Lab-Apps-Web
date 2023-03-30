@@ -12,10 +12,10 @@ namespace API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private List<Category> categories;
+        private List<Category> _categories;
         public CategoryController()
         {
-            categories = new List<Category>()
+            _categories = new List<Category>()
             {
                 new Category(){id=1,Description = "nose", Quantity = 3},
                 new Category(){id=2,Description = "nose", Quantity = 3},
@@ -24,52 +24,66 @@ namespace API.Controllers
             };
         }
         
-        // GET: api/Category
-        [HttpGet]
-        public List<Tutorial> Get()
+        // get tutorials by category
+        // GET: api/Category/5
+        [HttpGet("category/{id}")]
+        public List<Tutorial> GetTutorials(int id)
         {
-            Category category = new Category()
+            List<Tutorial> tutorials = new List<Tutorial>();
+            for (int i = 0; i < _categories.Count; i++)
             {
-                id=1,name = "DIY", Quantity = 10,
-                Tutorials = new List<Tutorial>()
+                if (_categories[i].id == id)
                 {
-                    new Tutorial(){id = 1, title = "Sopa", Description = "Cosas de comida", Year = new DateTime(2023, 3, 28, 16, 30, 0)}
+                    tutorials = _categories[i].Tutorials;
                 }
-            };
-            return category.getTutorials();
+            }
+            return tutorials;
         }
-
+        
         // GET: api/Category/5
         [HttpGet("{id}", Name = "Get")]
-        public Category Get(int id)
+        public Category GetById(int id)
         {
-            for (int i = 0; i < categories.Count; i++)
+            // get tutorial by id
+            for (int i = 0; i < _categories.Count; i++)
             {
-                if (categories[i].id==id)
+                if (_categories[i].id==id)
                 {
-                    return categories[i];
+                    return _categories[i];
                 }
             }
             
             return null;
         }
 
-        // POST: api/Category
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // get all 
+        // GET: api/Category
+        [HttpGet ("all")]
+        public List<Category> GetAll()
         {
+            return _categories;
         }
 
-        // PUT: api/Category/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // add category
+        // POST: api/Category
+        [HttpPost("create")]
+        public IActionResult Create([FromBody] Category category)
         {
+            _categories.Add(category);
+            return Ok();
         }
 
         // DELETE: api/Category/5
         [HttpDelete("{id}")]
-        public void Delete1(int id)
+        public IActionResult Delete(int id)
         {
+            Category category = _categories.FirstOrDefault( t => t.id == id);
+            if (category != null)
+            {
+                _categories.Remove(category);
+                return Ok();
+            }
+            return NotFound();
         }
     }
 }
