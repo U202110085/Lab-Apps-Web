@@ -26,18 +26,15 @@ namespace API.Controllers
         
         // get tutorials by category
         // GET: api/Category/5
-        [HttpGet("category/{id}")]
+        [HttpGet("category/{id:int}")]
         public List<Tutorial> GetTutorials(int id)
         {
-            List<Tutorial> tutorials = new List<Tutorial>();
-            for (int i = 0; i < _categories.Count; i++)
+            Category category = _categories.FirstOrDefault( t => t.id == id);
+            if (category != null)
             {
-                if (_categories[i].id == id)
-                {
-                    tutorials = _categories[i].Tutorials;
-                }
+                return category.Tutorials;
             }
-            return tutorials;
+            return null;
         }
         
         // GET: api/Category/5

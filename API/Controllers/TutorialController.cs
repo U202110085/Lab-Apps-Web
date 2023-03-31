@@ -31,28 +31,21 @@ namespace API.Controllers
                          new Tutorial() { id = 10,title = "Tutorial 10", Description = "Description 10" },
                      };
         }
-        
-        // GET: api/Tutorial/5
-        // get tuturial by id
-        [HttpGet("{id}")]
-        public Tutorial GetById(int id)
-        {
-            for (int i = 0; i < _tutorials.Count; i++)
-            {
-                if (_tutorials[i].id == id)
-                {
-                    return _tutorials[i];
-                }
-            }
-            return null;
-        }
-        
         // get all tuturials
         [HttpGet("all")]
         public List<Tutorial> GetAll()
         {
             return _tutorials;
         }
+        
+        // GET: api/Tutorial/5
+        // get tuturial by id
+        [HttpGet("{id}")]
+        public Tutorial GetById(int id)
+        {
+            return _tutorials.FirstOrDefault(t => t.id == id);
+        }
+        
         
         // create tuturial
         [HttpPost("create")]
@@ -65,18 +58,12 @@ namespace API.Controllers
         [HttpPut("update/{id}")]
         public void Update(int id, [FromBody] Tutorial tutorial)
         {
-            int index = -1;
-            for (int i = 0; i < _tutorials.Count; i++)
+            Tutorial newTutorial = _tutorials.FirstOrDefault(e => e.id == id);
+            if (newTutorial != null)
             {
-                if (_tutorials[i].id == id)
-                {
-                    index = i;
-                }
+                newTutorial.title = tutorial.title;
+                newTutorial.Description = tutorial.Description;
             }
-            if (index != -1)
-                _tutorials[index] = tutorial;
-            else
-                Console.WriteLine("Tutorial not found");
         }
         
         // DELETE: api/Tutorial/5
