@@ -64,10 +64,9 @@ namespace API.Controllers
         // add category
         // POST: api/Category
         [HttpPost("create")]
-        public IActionResult Create([FromBody] Category category)
+        public void Create([FromBody] Category category)
         {
             _categories.Add(category);
-            return Ok();
         }
 
         // DELETE: api/Category/5
